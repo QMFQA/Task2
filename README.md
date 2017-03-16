@@ -13,8 +13,11 @@
 <b>Важно:</b> в исходные классы нельзя вносить никакие изменения (за исключением строки FIXME).
 
 Ожидаемый вывод в результате выполнения программы:
-<pre>11 is less than 20
-Objects are equal</pre>
+<pre>Object1 name is 'test1\test2'
+Object2 name is 'test1\test2'
+Objects are equal
+11 is less than 12
+11 is equal to 11</pre>
 
 <h3>Темы для изучения:</h3>
 <ul>
