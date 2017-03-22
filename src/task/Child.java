@@ -30,7 +30,9 @@ public class Child extends Parent {
 
 	@Override
 	public boolean equals(Object obj) {
-		return (this.name==obj.toString());
+		boolean sameClass = (obj.getClass().isInstance(this));
+		boolean sameName = (this.name.equals(obj.toString()));
+		return (sameClass&&sameName);
 	}
 	
 	static public String formatCompareResult (int difference) {
@@ -47,9 +49,7 @@ public class Child extends Parent {
 	}
 
 	public int compare(Parent obj1) {
-		Child c = (Child) obj1;
-		int i = c.getValue();
-		return (this.getValue()-i);
+		return (this.getValue()-obj1.getValue());
 	}
 	
 }
