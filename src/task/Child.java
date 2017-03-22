@@ -1,13 +1,18 @@
 package task;
 
-public class Child extends Parent {
+import properties.TestProperties;
 
-	private final String name = "test1\\test2";
+public class Child extends Parent {	
+	static 
+	{
+		TestProperties.NAME = "test1\\test2";
+	}
 	
 	public Child() {}
 
 	public Child(int value) {
 		super(value);
+	
 	}
 
 	@Override
@@ -27,7 +32,7 @@ public class Child extends Parent {
 	{
 		return name;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -37,7 +42,7 @@ public class Child extends Parent {
 		if (getClass() != obj.getClass())
 			return false;
 		Child other = (Child) obj;
-		if (name != other.name)
+		if (!name.equals(other.name))
 			return false;
 		return true;
 	}
