@@ -43,8 +43,7 @@ public class Child extends Parent {
 
 	@Override
 	public int compare(int value) {
-		// TODO Auto-generated method stub
-		return 0;
+		return (this.getValue()-value);
 	}
 
 	public int compare(Parent obj1) {
