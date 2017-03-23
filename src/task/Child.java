@@ -44,10 +44,19 @@ public class Child extends Parent {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof Child) {
-			return name == ((Child) obj).getName();
-		}
-		return false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Child))
+			return false;
+		Child other = (Child) obj;
+		if (super.name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!super.name.equals(other.name))
+			return false;
+		return true;
 	}
 
 	public static String formatCompareResult(int comp_result) {
