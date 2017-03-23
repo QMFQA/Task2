@@ -57,6 +57,10 @@ public class Child extends Parent {
 	@Override
 	public boolean equals(Object arg0) {
 		
+		if( arg0 == null )
+			return false;
+		if(!(arg0 instanceof Child))
+			return false;
 		if( this.getName().compareTo(((Child) arg0).getName()) == 0 )
 			return true;
 		return false;
