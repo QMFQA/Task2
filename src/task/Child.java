@@ -3,17 +3,16 @@ package task;
 import properties.TestProperties;
 
 public class Child extends Parent {
-	private int value;
-	protected final String name;
-		
+	static {
+		TestProperties.NAME = "test1\\test2";
+	}
+	
 	public Child(){
 		this(TestProperties.VALUE);
 	}
 	
 	public Child(int value){
-		this.value = value;
-		TestProperties.NAME = "test1\\test2";
-		this.name = TestProperties.NAME;
+		super(value);
 	}
 	
 	public String getName(){
@@ -54,7 +53,7 @@ public class Child extends Parent {
 	
 	@Override
 	public int getValue(){
-		return this.value + 1;
+		return super.getValue() + 1;
 	}
 
 }
