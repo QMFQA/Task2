@@ -1,6 +1,7 @@
 package task;
 
 public class Child extends Parent {
+	
 	final static int CMP_LESS = -1;
 	final static int CMP_EQUAL = 0;
 	final static int CMP_GREATER = 1;
