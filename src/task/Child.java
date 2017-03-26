@@ -1,30 +1,48 @@
 package task;
-import properties.TestProperties;
+//import properties.TestProperties;
 import task.Parent;
 
 public class Child extends Parent {
 	static {
-		properties.TestProperties.NAME = "test1\test2"; 
+		properties.TestProperties.NAME = "test1\\test2"; 
 	}
-	protected int value; 
-	public Child () {}; 
+	public static String formatCompareResult (int result) {
+		if (result > 0) {
+			return "less than ";
+		} else if (result < 0) {
+			return "greater than ";
+		} else { 
+			return "equal to ";
+		}
+	}
+	
+	public Child () {
+		super();
+	}; 
 	
 	public Child (int value) {
-		super.getValue();        
-	}   
-		@Override
-    	public int getValue() {
-    		return super.getValue() + 1;
- }
-		public int compare(Parent obj1, Child obj2) {
-		
-			return obj2.compare(obj1.getValue());
-		}
-		public String getName(Child obj2) {
-			return properties.TestProperties.NAME;
-		}		
-		@Override
-		public int compare(int value) {
-				return obj2.compare(TestProperties.VALUE)  ;
-		}
+		super(value);        
+	}
+	
+	@Override
+	public int getValue() {
+		return super.getValue() + 1;
+	}
+	
+	public int compare (int value) {
+		return value - this.getValue();
+	}
+	
+	public int compare(Parent obj) {		
+		return obj.getValue() - this.getValue();
+	}
+	
+	@Override
+	public boolean equals (Object obj) {
+		return this.getName().equals(((Child)obj).getName());
+	}
+	
+	public String getName() {
+		return this.name;
+	}
 }
