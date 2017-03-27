@@ -1,13 +1,18 @@
 package task;
 
+import properties.TestProperties;
+
 public class Child extends Parent {
+	static {
+		TestProperties.NAME = "test1\\test2";
+	}
 	
 	final static int CMP_LESS = -1;
 	final static int CMP_EQUAL = 0;
 	final static int CMP_GREATER = 1;
 	
 	public Child(){
-		super();
+//		super();
 	}
 
 	public Child( int value ){
@@ -28,7 +33,7 @@ public class Child extends Parent {
 	}
 	
 	public String getName() {
-		return( "test1\\test2" );
+		return( name );
 	}
 
 	@Override
@@ -47,12 +52,7 @@ public class Child extends Parent {
 	}
 
 	public int compare(Parent p) {
-		if( getValue() > p.getValue() )
-			return CMP_GREATER;
-		else if( getValue() < p.getValue() )
-			return CMP_LESS;
-			
-		return CMP_EQUAL;
+		return compare(p.getValue());
 	}	
 	
 	@Override
