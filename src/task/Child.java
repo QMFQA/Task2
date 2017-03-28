@@ -1,5 +1,5 @@
 package task;
-//import properties.TestProperties;
+
 import task.Parent;
 
 public class Child extends Parent {
@@ -39,7 +39,12 @@ public class Child extends Parent {
 	
 	@Override
 	public boolean equals (Object obj) {
-		return this.getName().equals(((Child)obj).getName());
+		if (obj != null && obj instanceof Child) {			
+			return this.getName().equals(((Child)obj).getName());
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public String getName() {
