@@ -17,7 +17,7 @@ public class Child extends Parent {
 	}
 	
 	public String getName() {
-		return super.name;
+		return name;
 	}
 	
 	@Override
@@ -44,7 +44,7 @@ public class Child extends Parent {
 			return true;
 		}
 		
-		if (!(obj instanceof Child)) {
+		if (!(getClass() == Child.class)) {
 			return false;
 		}
 		
