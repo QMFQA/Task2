@@ -9,7 +9,6 @@ public class Child extends Parent {
 	}
 
 	public Child() {
-		super();
 	}
 
 	public Child(int value) {
@@ -44,7 +43,7 @@ public class Child extends Parent {
 			return true;
 		}
 		
-		if (!(getClass() == Child.class)) {
+		if (!(obj.getClass() == Child.class)) {
 			return false;
 		}
 		
